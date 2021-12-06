@@ -1,12 +1,17 @@
 class ReferencesService {
   getCounterCopyingReferences(object) {
-    // TODO: assing object to a new variable and return it.
-    return null;
+    const newObject = object
+
+    return newObject;
   }
 
   getCounterWithoutCopyingReferences(object) {
-    // TODO: assing object to a new variable and return it.
-    return null;
+    // força a cópia do valor independente da referencia em memória
+    // ainda não entendi a resolução do terceiro teste
+
+    let newObject = Object.create(object)
+
+    return newObject;
   }
 
   /*
