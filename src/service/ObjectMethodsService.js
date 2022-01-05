@@ -2,6 +2,7 @@ class ObjectMethodsService {
   getEnhancedObject(rawObject) {
     // exemplo do que foi feito em aula, 
     return {
+      ...rawObject,
       // se for number o value of não retornar um tipo primitivo ele chama o toString
       valueOf() {
         return rawObject.age
@@ -14,6 +15,7 @@ class ObjectMethodsService {
 
     // resolução com arrow funciton
     // return {
+    // ...rawObject,
     //   valueOf: () => rawObject.age,
     //   toString: () => rawObject.name
     // }
@@ -21,13 +23,14 @@ class ObjectMethodsService {
 
   getEnhancedObject2(rawObject) {
     return {
-      valueOf: () => `[name="${rawObject.name}",age=${rawObject.age}]`,
+      ...rawObject,
       toString: () => `[name="${rawObject.name}",age=${rawObject.age}]`,
     };
   }
 
   getEnhancedObjectWithoutValueOfOrToString(rawObject) {
     const modifiedObject = {  
+      ...rawObject,
       [Symbol.toPrimitive](coercionType) {
         const types = {
           string: `[name="${rawObject.name}",age=${rawObject.age}]`,

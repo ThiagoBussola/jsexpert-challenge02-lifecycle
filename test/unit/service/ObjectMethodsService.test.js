@@ -32,7 +32,7 @@ describe('ObjectMethodsService Suite Tests', () => {
     expect(result2).to.be.eql(expected2);
   });
 
-  it('should provide a readable description of the object on string coercing', () => {
+  it.only('should provide a readable description of the object on string coercing', () => {
     const rawObject = Object.create(MOCK_OBJECT);
 
     const object = service.getEnhancedObject2(rawObject);
